@@ -46,10 +46,10 @@ const App = () => {
 
   // Itens do Menu
   const menuItems = [
-    { id: 'relatorio', label: 'Relatório', icon: '📋', color: 'bg-blue-600' },
-    { id: 'saida', label: 'Registrar Saída', icon: '📤', color: 'bg-red-600' },
-    { id: 'entrada', label: 'Entrada Estoque', icon: '📥', color: 'bg-green-600' },
-    { id: 'funcionario', label: 'Funcionários', icon: '👥', color: 'bg-orange-500' },
+    { id: 'relatorio', label: 'Relatório', icon: '📋', color: 'bg-blue-600/30' },
+    { id: 'saida', label: 'Registrar Saída', icon: '📤', color: 'bg-red-600/30' },
+    { id: 'entrada', label: 'Entrada Estoque', icon: '📥', color: 'bg-green-600/30' },
+    { id: 'funcionario', label: 'Funcionários', icon: '👥', color: 'bg-orange-500/30' },
   ];
 
   // Se não houver sessão, mostra apenas o Login
@@ -58,13 +58,13 @@ const App = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100 font-sans pb-20 md:pb-0">
+    <div className="flex flex-col md:flex-row min-h-screen pb-20 md:pb-0">
       
       {/* SIDEBAR (DESKTOP) */}
-      <aside className="hidden md:flex w-64 bg-slate-800 text-white flex-col p-6 shadow-xl">
+      <aside className="hidden md:flex w-52 bg-zinc-900 text-white flex-col p-6 shadow-xl shadow-black/50">
         <div className="flex items-center gap-3 mb-10 justify-center">
           <span className="text-2xl">📦</span>
-          <h1 className="text-xl font-bold tracking-tight">EstoqueEPI</h1>
+          <h1 className="text-xl font-bold tracking-tight">Easy Stock Control</h1>
         </div>
 
         <nav className="flex flex-col gap-2">
@@ -73,7 +73,7 @@ const App = () => {
               key={item.id}
               onClick={() => setAbaAtiva(item.id)}
               className={`p-3 rounded-lg text-left transition flex items-center gap-3 ${
-                abaAtiva === item.id ? item.color : "hover:bg-slate-700 text-gray-300"
+                abaAtiva === item.id ? item.color : "hover:bg-white/10 text-gray-300"
               }`}
             >
               <span className="text-xl">{item.icon}</span>
@@ -91,11 +91,11 @@ const App = () => {
       </aside>
 
       {/* ÁREA DE CONTEÚDO */}
-      <main className="flex-1 p-4 md:p-10 overflow-y-auto">
+      <main className="flex-1 p-4 md:p-10 h-screen"> 
         
         {/* CABEÇALHO MOBILE */}
         <div className="md:hidden flex justify-between items-center mb-6">
-           <h1 className="text-xl font-bold text-slate-800">📦 EstoqueEPI</h1>
+           <h1 className="text-xl font-bold text-zinc-800">Easy Stock Control</h1>
            <button onClick={() => supabase.auth.signOut()} className="text-sm bg-red-100 text-red-600 px-3 py-1 rounded-full font-bold">Sair</button>
         </div>
 
@@ -133,13 +133,13 @@ const App = () => {
       </main>
 
       {/* TAB BAR (MOBILE) */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900 text-white flex justify-around items-center p-3 border-t border-slate-700 z-50">
+      <nav className="md:hidden fixed bottom-1 left-0 right-0 bg-zinc-800/70 backdrop-blur-md text-white flex justify-around items-center p-3 z-50">
         {menuItems.map((item) => (
           <button 
             key={item.id}
             onClick={() => setAbaAtiva(item.id)}
             className={`flex flex-col items-center gap-1 transition-all ${
-              abaAtiva === item.id ? "text-blue-400 scale-110" : "text-gray-500"
+              abaAtiva === item.id ? "text-blue-400 scale-110" : "text-white"
             }`}
           >
             <span className="text-xl">{item.icon}</span>

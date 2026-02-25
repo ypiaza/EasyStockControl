@@ -58,34 +58,32 @@ export default function EntradaEstoque() {
 
   return (
     <div className='p-5 w-full'>
-      <h2 className='place-self-center font-bold mb-5'>Entrada de Estoque / Compra</h2>
-
-      <div style={{ marginBottom: '20px' }}>
-        <button onClick={() => setIsNovoItem(false)} style={{ marginRight: '10px', padding: '5px 10px' }}>Repor Item Existente</button>
-        <button onClick={() => setIsNovoItem(true)} style={{ padding: '5px 10px' }}>Cadastrar Novo Tipo de EPI</button>
+      <div className='w-full mb-4 flex items-center justify-evenly'>
+        <button onClick={() => setIsNovoItem(false)} className='border border-amber-200/10 px-2 py-1 rounded bg-amber-500/90 hover:bg-amber-500 text-white font-semibold cursor-pointer'>Repor Item Existente</button>
+        <button onClick={() => setIsNovoItem(true)} className='border border-amber-200/10 px-2 py-1 rounded bg-emerald-400/90 hover:bg-emerald-400 text-white font-semibold cursor-pointer' >Cadastrar Novo Tipo de EPI</button>
       </div>
 
       <form onSubmit={handleEntrada}>
         {isNovoItem ? (
           <div style={{ marginBottom: '10px' }}>
-            <label>Nome do Novo EPI:</label>
+            <label className='font-bold'>Nome do Novo EPI:</label>
             <input 
               type="text" 
               value={nomeItem} 
               onChange={e => setNomeItem(e.target.value)} 
               required 
-              style={{ width: '100%', padding: '8px' }} 
+              className='w-full border-2 border-black/50 rounded p-1' 
               placeholder="Ex: Luva de Vaqueta"
             />
           </div>
         ) : (
           <div style={{ marginBottom: '10px' }}>
-            <label>Selecionar EPI:</label>
+            <label className='font-bold'>Selecionar EPI:</label>
             <select 
               value={itemId} 
               onChange={e => setItemId(e.target.value)} 
               required 
-              style={{ width: '100%', padding: '8px' }}
+              className='w-full border-2 border-black/50 rounded p-1'
             >
               <option value="">Selecione o item...</option>
               {estoque.map(item => (
@@ -96,13 +94,13 @@ export default function EntradaEstoque() {
         )}
 
         <div style={{ marginBottom: '10px' }}>
-          <label>Quantidade que está entrando:</label>
+          <label className='font-bold'>Quantidade que está entrando:</label>
           <input 
             type="number" 
             value={quantidade} 
             onChange={e => setQuantidade(e.target.value)} 
             required 
-            style={{ width: '100%', padding: '8px' }} 
+            className='w-full border-2 border-black/50 rounded p-1' 
           />
         </div>
 

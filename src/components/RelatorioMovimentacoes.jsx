@@ -18,12 +18,11 @@ export default function RelatorioSimples() {
   }, []);
 
   return (
-    <div className='p-5'>
-      <h2>📋 Relatório de Movimentações</h2>
-      <table border="1" cellPadding="10" style={{ width: '100%', borderCollapse: 'collapse', marginTop: '10px' }}>
+    <div className='p-5 h-80 overflow-y-auto'>
+      <table border="1" cellPadding="10" className='w-full border-collapse'>
         <thead>
-          <tr style={{ backgroundColor: '#f0f0f0' }}>
-            <th>Data</th>
+          <tr className='bg-zinc-400 border'>
+            <th >Data</th>
             <th>Funcionário</th>
             <th>EPI</th>
             <th>Qtd</th>
@@ -31,11 +30,11 @@ export default function RelatorioSimples() {
         </thead>
         <tbody>
           {dados.map((item, index) => (
-            <tr key={index}>
-              <td>{new Date(item.data_saida).toLocaleDateString('pt-BR')}</td>
-              <td>{item.funcionarios?.nome}</td>
-              <td>{item.estoque?.nome_item}</td>
-              <td>{item.quantidade_entregue}</td>
+            <tr key={index} className='border-b mb-0.5'>
+              <td className='border-x'>{new Date(item.data_saida).toLocaleDateString('pt-BR')}</td>
+              <td className='border-x'>{item.funcionarios?.nome}</td>
+              <td className='border-x'>{item.estoque?.nome_item}</td>
+              <td className='border-x'>{item.quantidade_entregue}</td>
             </tr>
           ))}
         </tbody>

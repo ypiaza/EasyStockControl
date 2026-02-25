@@ -48,17 +48,15 @@ export default function CadastroMovimentacao() {
   };
 
   return (
-    <div className='p-5 w-full'>
-      <h2 className='place-self-center font-bold mb-5'>Registrar Saída de EPI</h2>
-      
+    <div className='p-5 w-full'>     
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '15px' }}>
-          <label>Funcionário:</label>
+        <div>
+          <label className='font-bold'>Funcionário:</label>
           <select 
             required 
             value={funcionarioId} 
             onChange={e => setFuncionarioId(e.target.value)}
-            style={{ width: '100%', padding: '8px' }}
+            className='w-full border-2 border-black/50 rounded p-1'
           >
             <option value="">Selecione...</option>
             {funcionarios.map(f => (
@@ -67,13 +65,13 @@ export default function CadastroMovimentacao() {
           </select>
         </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label>EPI (Item do Estoque):</label>
+        <div className='mb-4'>
+          <label className='font-bold'>EPI (Item do Estoque):</label>
           <select 
             required 
             value={itemId} 
             onChange={e => setItemId(e.target.value)}
-            style={{ width: '100%', padding: '8px' }}
+            className='w-full border-2 border-black/50 rounded p-1'
           >
             <option value="">Selecione...</option>
             {estoque.map(i => (
@@ -84,14 +82,14 @@ export default function CadastroMovimentacao() {
           </select>
         </div>
 
-        <div style={{ marginBottom: '15px' }}>
-          <label>Quantidade:</label>
+        <div className='mb-4'>
+          <label className='font-bold'>Quantidade:</label>
           <input 
             type="number" 
             min="1" 
             value={quantidade} 
             onChange={e => setQuantidade(e.target.value)}
-            style={{ width: '100%', padding: '8px' }}
+            className='w-full border-2 border-black/50 rounded p-1'
           />
         </div>
 

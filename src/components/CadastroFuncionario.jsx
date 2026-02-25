@@ -27,24 +27,24 @@ export default function CadastroFuncionario() {
     setLoading(false);
   };
 
-  // useEffect(() => {
-  //   const buscarFuncionarios = async () => {
-  //     try {
-  //       const response = await fetch(supabase)
+  useEffect(() => {
+    const buscarFuncionarios = async () => {
+      try {
+        const response = await fetch(supabase)
 
-  //       if(!response.ok) {
-  //         throw new Error('Erro ao buscar funcionários')
-  //       }
+        if(!response.ok) {
+          throw new Error('Erro ao buscar funcionários')
+        }
 
-  //       const dados = await response.json();
-  //       setFuncionarios(dados)
-  //     } catch (err) {
-  //       setErro(err.message);
-  //     } 
-  //   }
-  //   console.log(funcionarios)
-  //   buscarFuncionarios()
-  // }, [])
+        const dados = await response.json();
+        setFuncionarios(dados)
+      } catch (err) {
+        setErro(err.message);
+      } 
+    }
+    console.log(funcionarios)
+    buscarFuncionarios()
+  }, [])
 
   return (
     <div style={{ padding: '20px', maxWidth: '400px', border: '1px solid #eee', borderRadius: '10px', marginTop: '20px' }}>
@@ -92,10 +92,10 @@ export default function CadastroFuncionario() {
           {loading ? 'Salvando...' : 'Cadastrar Funcionário'}
         </button>
       </form>
-      {/* <div className='h-full border border-red-500'>
-        {funcionarios.map((item) => {
-          <p className='text-red-500'>{item.nome}</p>
-        })}
-      </div> */}
+        {/* <div className='h-full border border-red-500'>
+          {funcionarios.map((item) => {
+            <p className='text-red-500'>{item.nome}</p>
+          })}
+        </div> */}
     </div>
   )}
