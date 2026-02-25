@@ -48,7 +48,7 @@ export default function CadastroFuncionario() {
   }, [])
 
   return (
-    <div className="p-5 w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-start mt-5">
+    <div className="p-5 w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-start mt-5 h-80">
       
       <form onSubmit={handleCadastro}
             className='w-full'>
