@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../data/supabaseClient'; // O arquivo de conexão que criamos
+import ListaFuncionarios from './ListaFuncionarios';
 
 export default function CadastroFuncionario() {
   const [nome, setNome] = useState('');
@@ -47,10 +48,11 @@ export default function CadastroFuncionario() {
   }, [])
 
   return (
-    <div style={{ padding: '20px', maxWidth: '400px', border: '1px solid #eee', borderRadius: '10px', marginTop: '20px' }}>
-      <h2 style={{ color: '#333' }}>Novo Funcionário</h2>
+    <div className="p-5 w-full grid grid-cols-1 md:grid-cols-2 gap-2 items-start mt-5">
       
-      <form onSubmit={handleCadastro}>
+      <form onSubmit={handleCadastro}
+            className='w-full'>
+      <h2 style={{ color: '#333' }}>Novo Funcionário</h2>
         <div style={{ marginBottom: '10px' }}>
           <label style={{ display: 'block', marginBottom: '5px' }}>Nome Completo:</label>
           <input 
@@ -92,10 +94,6 @@ export default function CadastroFuncionario() {
           {loading ? 'Salvando...' : 'Cadastrar Funcionário'}
         </button>
       </form>
-        {/* <div className='h-full border border-red-500'>
-          {funcionarios.map((item) => {
-            <p className='text-red-500'>{item.nome}</p>
-          })}
-        </div> */}
+        <ListaFuncionarios />
     </div>
   )}

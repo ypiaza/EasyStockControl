@@ -18,11 +18,11 @@ export default function RelatorioSimples() {
   }, []);
 
   return (
-    <div className='p-5 h-80 overflow-y-auto'>
+    <div className='w-full md:h-80 overflow-y-auto'>
       <table border="1" cellPadding="10" className='w-full border-collapse'>
         <thead>
           <tr className='bg-zinc-400 border'>
-            <th >Data</th>
+            <th>Data</th>
             <th>Funcionário</th>
             <th>EPI</th>
             <th>Qtd</th>
