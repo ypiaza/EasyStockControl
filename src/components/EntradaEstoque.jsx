@@ -58,7 +58,7 @@ export default function EntradaEstoque() {
 
   return (
     <div className='p-5 w-full'>
-      <div className='w-full mb-4 flex items-center justify-evenly'>
+      <div className='w-full mb-4 flex items-center justify-between gap-1'>
         <button onClick={() => setIsNovoItem(false)} className='border border-amber-200/10 px-2 py-1 rounded bg-amber-500/90 hover:bg-amber-500 text-white font-semibold cursor-pointer'>Repor Item Existente</button>
         <button onClick={() => setIsNovoItem(true)} className='border border-amber-200/10 px-2 py-1 rounded bg-emerald-400/90 hover:bg-emerald-400 text-white font-semibold cursor-pointer' >Cadastrar Novo Tipo de EPI</button>
       </div>

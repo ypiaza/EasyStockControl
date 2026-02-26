@@ -22,9 +22,9 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-slate-900">
-      <form onSubmit={handleLogin} className="bg-white p-8 rounded-2xl shadow-2xl w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center text-slate-800">Cofre de EPI</h2>
+    <div className="flex items-center justify-center min-h-screen">
+      <form onSubmit={handleLogin} className=" p-8 w-96">
+      <h2 className="text-2xl font-bold mb-15 text-center text-zinc-800">Easy Stock Control</h2>
         <input 
           type="email" 
           placeholder="Seu e-mail" 
@@ -37,7 +37,7 @@ export default function Login({ onLoginSuccess }) {
           className="w-full p-3 border rounded-lg mb-6"
           value={password} onChange={e => setPassword(e.target.value)}
         />
-        <button className="w-full bg-blue-600 text-white p-3 rounded-lg font-bold hover:bg-blue-700">
+        <button className="w-full bg-blue-600 text-white p-3 rounded-lg font-bold hover:bg-blue-700 hover:scale-101 cursor-pointer transition-all duration-200">
           {loading ? "Entrando..." : "Entrar"}
         </button>
       </form>

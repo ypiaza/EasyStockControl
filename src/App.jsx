@@ -7,6 +7,7 @@ import CadastroMovimentacao from "./components/CadastroMovimentacao";
 import EntradaEstoque from "./components/EntradaEstoque";
 import RelatorioMovimentacoes from "./components/RelatorioMovimentacoes";
 import Login from "./components/Login";
+import MonitorEstoqueBarra from "./components/MonitorEstoqueBarra";
 
 const App = () => {
   const [session, setSession] = useState(null);
@@ -58,7 +59,7 @@ const App = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen pb-20 md:pb-0">
+    <div className="flex flex-col md:flex-row min-h-screen pb-20 md:pb-0 relative">
       
       {/* SIDEBAR (DESKTOP) */}
       <aside className="hidden md:flex w-52 bg-zinc-900 text-white flex-col p-6 shadow-xl shadow-black/50">
@@ -72,7 +73,7 @@ const App = () => {
             <button 
               key={item.id}
               onClick={() => setAbaAtiva(item.id)}
-              className={`p-3 rounded-lg text-left transition flex items-center gap-3 ${
+              className={`p-3 cursor-pointer rounded-lg text-left transition flex items-center gap-3 ${
                 abaAtiva === item.id ? item.color : "hover:bg-white/10 text-gray-300"
               }`}
             >
@@ -99,21 +100,7 @@ const App = () => {
            <button onClick={() => supabase.auth.signOut()} className="text-sm bg-red-100 text-red-600 px-3 py-1 rounded-full font-bold">Sair</button>
         </div>
 
-        {/* MINI DASHBOARD */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-          <div className="bg-white p-4 rounded-xl shadow-sm border-b-4 border-blue-500">
-            <p className="text-gray-400 text-[10px] md:text-xs uppercase font-bold mb-1">Total Itens</p>
-            <h3 className="text-xl md:text-2xl font-black text-slate-700">{stats.total}</h3>
-          </div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border-b-4 border-red-500">
-            <p className="text-gray-400 text-[10px] md:text-xs uppercase font-bold mb-1">Crítico (Abaixo Min.)</p>
-            <h3 className="text-xl md:text-2xl font-black text-red-600">{stats.baixo}</h3>
-          </div>
-          <div className="hidden md:block bg-white p-4 rounded-xl shadow-sm border-b-4 border-green-500">
-            <p className="text-gray-400 text-xs uppercase font-bold mb-1">Status do Banco</p>
-            <h3 className="text-2xl font-black text-green-600">Conectado</h3>
-          </div>
-        </div>
+        <MonitorEstoqueBarra />
 
         {/* COMPONENTE ATIVO */}
         <div className="bg-white rounded-2xl shadow-md p-6 md:p-10 border border-gray-200">
