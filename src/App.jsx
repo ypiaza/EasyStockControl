@@ -59,7 +59,7 @@ const App = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen pb-20 md:pb-0 relative">
+    <div className="flex flex-col md:flex-row min-h-[100dvh] pb-20 md:pb-0 relative">
       
       {/* SIDEBAR (DESKTOP) */}
       <aside className="hidden md:flex w-52 bg-zinc-900 text-white flex-col p-6 shadow-xl shadow-black/50">
